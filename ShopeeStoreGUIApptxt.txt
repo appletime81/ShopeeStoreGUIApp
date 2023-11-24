@@ -1,0 +1,9 @@
+1. 輸入訂單編號
+2. 拿取帳密
+3. 解壓縮ZIP
+
+服務帳戶名稱
+google-sheet-api-by-python
+
+服務帳戶ID
+google-sheet-api-by-python@fifth-branch-405907.iam.gserviceaccount.com
