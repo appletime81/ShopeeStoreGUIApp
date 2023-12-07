@@ -55,14 +55,12 @@ def get_secret_key(order_no):
     # ------------------------------------------------------------
 
     df = pl.DataFrame(wks.get_all_records())
-    password = (
-        df.select(pl.col("Order No.").str.contains(order_no), pl.col("Password"))
-        .select(pl.col("Password"))
-        .item(0, 0)
-    )
-    return password
-
-
-if __name__ == "__main__":
-    pwd = get_secret_key("2311229BQPHVR8")
-    print(pwd)
+    if len(order_no) > 0 and len(order_no) == 14:
+        sub_df = df.filter(pl.col("Order No.").str.contains(order_no))
+        print(sub_df)
+        try:
+            password = sub_df.item(0, 2)
+            return password
+        except:
+            return False
+    return False
